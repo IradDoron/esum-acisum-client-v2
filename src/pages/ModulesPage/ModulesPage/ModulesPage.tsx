@@ -15,7 +15,7 @@ import { useFetchModules, useUpdateCurrModuleData } from './effects';
 import {
 	currModuleData,
 	currModuleIndex,
-	currModuleIndexInput
+	currModuleIndexInput,
 } from './states';
 
 const { Meta, Content } = ModuleComponents;
@@ -83,8 +83,12 @@ function ModulesPage() {
 								return (
 									<>
 										<Content.Card.Container key={index}>
-											<Content.Card.Header title={content?.title} description={content?.description} />
-											<Content.ElementsBox>
+											<Content.Card.Header
+												title={content?.title}
+												description={content?.description}
+												count={Number(index) + 1}
+											/>
+											<Content.Card.Body>
 												{content.elements.map((element: any, index: number) => {
 													return (
 														<Content.Element
@@ -95,7 +99,7 @@ function ModulesPage() {
 														></Content.Element>
 													);
 												})}
-											</Content.ElementsBox>
+											</Content.Card.Body>
 										</Content.Card.Container>
 									</>
 								);

@@ -1,5 +1,5 @@
 // import types
-import { BasicThemeProps } from '../../../../types/styledComponentsInterfaces';
+import { BasicThemeProps } from '../../../../../types/styledComponentsInterfaces';
 
 // import libraries
 import React from 'react';
@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 // import states
-import { themeModeState, themeState } from '../../../../recoil/theme';
+import { themeModeState, themeState } from '../../../../../recoil/theme';
 
 // styled components
 const StyledDescription = styled.h3<BasicThemeProps>`

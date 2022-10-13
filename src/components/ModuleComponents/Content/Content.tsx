@@ -1,7 +1,6 @@
 import ChapterBox from './ChapterBox';
 import ChaptersContainer from './ChaptersContainer';
 import Element from './Element';
-import ElementsBox from './ElementsBox';
 import Title from './Title';
 
 // new components
@@ -14,7 +13,6 @@ type ComponentsObject = {
 const Content: ComponentsObject = {
 	ChaptersContainer,
 	ChapterBox,
-	ElementsBox,
 	Title,
 	Element,
 	Card,

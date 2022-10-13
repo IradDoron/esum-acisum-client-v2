@@ -14,11 +14,13 @@ const StyledContainer = styled.section<BasicThemeProps>`
 	margin: auto;
 	margin-bottom: ${({ theme }) => theme.spacing.getSpace('xl')};
 	max-width: 1000px;
+	min-height: 200px;
 	border-radius: 32px;
 	border-width: 6px;
 	border-style: solid;
 	border-color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color1.main.value};
+
 `;
 
 type ContainerProps = {
