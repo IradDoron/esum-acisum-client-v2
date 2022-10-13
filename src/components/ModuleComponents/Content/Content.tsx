@@ -1,21 +1,23 @@
 import ChapterBox from './ChapterBox';
 import ChaptersContainer from './ChaptersContainer';
-import Description from './Description';
+import Element from './Element';
 import ElementsBox from './ElementsBox';
 import Title from './Title';
-import Element from './Element';
+
+// new components
+import Card from './Card';
 
 type ComponentsObject = {
-	[key: string]: React.FC;
+	[key: string]: React.FC | ComponentsObject;
 };
 
 const Content: ComponentsObject = {
 	ChaptersContainer,
 	ChapterBox,
-	Description,
 	ElementsBox,
 	Title,
 	Element,
+	Card,
 };
 
 export default Content;

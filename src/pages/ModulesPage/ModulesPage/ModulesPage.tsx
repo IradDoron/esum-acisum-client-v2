@@ -2,6 +2,7 @@
 import ModuleComponents from '../../../components/ModuleComponents';
 
 // import libraries
+import React from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 // import helpers
@@ -14,7 +15,7 @@ import { useFetchModules, useUpdateCurrModuleData } from './effects';
 import {
 	currModuleData,
 	currModuleIndex,
-	currModuleIndexInput,
+	currModuleIndexInput
 } from './states';
 
 const { Meta, Content } = ModuleComponents;
@@ -71,23 +72,18 @@ function ModulesPage() {
 						prerequisites={currModuleDataState?.meta?.prerequisites}
 					/>
 					<Meta.Goals goals={currModuleDataState?.meta?.goals} />
-					<Meta.NextModules
-						nextModules={currModuleDataState?.meta?.nextModules}
-					/>
+
 					<Meta.TableOfContents
 						tableOfContents={() => GetListOfContentsTitles()}
 					/>
 
-					<h1>Content components</h1>
-					<h2>***********************</h2>
 					<Content.ChaptersContainer>
 						{currModuleDataState?.chapters?.map(
 							(content: any, index: number) => {
 								return (
 									<>
-										<Content.ChapterBox key={index}>
-											<Content.Title title={content.title} />
-											<Content.Description description={content.description} />
+										<Content.Card.Container key={index}>
+											<Content.Card.Header title={content?.title} description={content?.description} />
 											<Content.ElementsBox>
 												{content.elements.map((element: any, index: number) => {
 													return (
@@ -100,12 +96,15 @@ function ModulesPage() {
 													);
 												})}
 											</Content.ElementsBox>
-										</Content.ChapterBox>
+										</Content.Card.Container>
 									</>
 								);
 							}
 						)}
 					</Content.ChaptersContainer>
+					<Meta.NextModules
+						nextModules={currModuleDataState?.meta?.nextModules}
+					/>
 				</>
 			)}
 		</>

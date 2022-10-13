@@ -1,5 +1,5 @@
 function ChaptersContainer({ children }: any) {
-	return <div style={{ border: 'solid black' }}>{children}</div>;
+	return <div >{children}</div>;
 }
 
 export default ChaptersContainer;
