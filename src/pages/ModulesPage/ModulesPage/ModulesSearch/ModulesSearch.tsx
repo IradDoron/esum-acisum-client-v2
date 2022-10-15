@@ -5,15 +5,13 @@ import { BasicThemeProps } from '../../../../types/styledComponentsInterfaces';
 import { themeModeState, themeState } from '../../../../recoil/theme';
 import {
 	allModules,
+	currModuleData,
 	currModuleId,
 	currModuleIdInput,
-	currModuleIndex,
-	currModuleIndexInput,
-	currModuleData,
 } from '../states';
 
 // import libraries
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
@@ -76,8 +74,6 @@ interface ChipProps {
 
 function ModulesSearch() {
 	// states
-	const currModuleIndexInputState = useRecoilValue(currModuleIndexInput);
-	const currModuleIndexState = useRecoilValue(currModuleIndex);
 	const [currModuleIdState, setCurrModuleIdState] =
 		useRecoilState(currModuleId);
 	const [currModuleIdInputState, setCurrModuleIdInputState] =
@@ -85,13 +81,10 @@ function ModulesSearch() {
 	const allModulesState = useRecoilValue(allModules);
 	const [allModulesTitles, setAllModulesTitles] = useState<any>([]);
 	const setCurrModuleDataState = useSetRecoilState(currModuleData);
-
-	const setCurrModuleIndexState = useSetRecoilState(currModuleIndex);
-	const setCurrModuleIndexInputState = useSetRecoilState(currModuleIndexInput);
 	const theme = useRecoilValue(themeState);
 	const themeMode = useRecoilValue(themeModeState);
 
-	const [modulesCount, setModulesCount] = useState<any>(null);
+	const setModulesCount = useState<any>(null)[1];
 
 	// helpers
 	const getModuleIdFromTitle = (title: string) => {
@@ -107,7 +100,7 @@ function ModulesSearch() {
 		if (allModulesState) {
 			setModulesCount(allModulesState.length);
 		}
-	}, [allModulesState]);
+	}, [allModulesState, setModulesCount]);
 
 	useEffect(() => {
 		if (allModulesState) {
@@ -128,8 +121,7 @@ function ModulesSearch() {
 	// events handlers
 	const handleModuleIdChange = (event: any): void => {
 		const { value } = event.target;
-		console.log(value);
-		setCurrModuleIdInputState(Number(value));
+		setCurrModuleIdInputState(value);
 	};
 
 	const handleOpenModuleClick = (currInput: any, setter: any): void => {

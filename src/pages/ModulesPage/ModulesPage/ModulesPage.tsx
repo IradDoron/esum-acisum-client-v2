@@ -7,7 +7,7 @@ import { BasicThemeProps } from '../../../types/styledComponentsInterfaces';
 
 // import libraries
 import React from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 // import helpers

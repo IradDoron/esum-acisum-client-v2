@@ -1,13 +1,16 @@
-// import types
-import { BasicThemeProps } from '../../../../types/styledComponentsInterfaces';
-
 // import libraries
 import React from 'react';
-import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
+// types and interfaces
+
+interface StyledVideoProps {
+	src: string;
+	title: string;
+	allow: string;
+}
+
 // import states
-import { themeModeState, themeState } from '../../../../recoil/theme';
 
 // styled components
 const StyledVideoContainer = styled.div<any>`
@@ -15,7 +18,7 @@ const StyledVideoContainer = styled.div<any>`
 	justify-content: center;
 	align-items: center;
 `;
-const StyledVideo = styled.iframe<BasicThemeProps>`
+const StyledVideo = styled.iframe<StyledVideoProps>`
 	width: 100%;
 	max-width: 700px;
 `;
@@ -25,12 +28,9 @@ function Video({ content }: any) {
 	return (
 		<StyledVideoContainer>
 			<StyledVideo
-				width="1240"
-				height="698"
 				src={content}
 				title="הדגמה לליווי פסנתר בטכניקת השורשים"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen
 			></StyledVideo>
 		</StyledVideoContainer>
 	);
