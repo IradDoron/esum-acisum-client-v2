@@ -2,10 +2,7 @@
 import abcjs from 'abcjs';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
 import { v4 } from 'uuid';
-// import states
-import { themeModeState, themeState } from '../../../../recoil/theme';
 
 type Degree = string;
 type Tonic = 'C' | 'D' | 'E' | 'F' | 'G' | 'A' | 'B';
