@@ -1,7 +1,10 @@
 import Element from '../Element';
 
+// import libraries
+import React from 'react';
+
 function UnorderedList(props: any) {
-	const { content, items } = props;
+	const { items } = props;
 	return (
 		<ul>
 			{items.map((item: any, index: any) => {

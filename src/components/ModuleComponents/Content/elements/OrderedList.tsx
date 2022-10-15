@@ -1,6 +1,7 @@
 import Element from '../Element';
+import React from 'react';
 function OrderedList(props: any) {
-	const { content, items } = props;
+	const { items } = props;
 	return (
 		<ol>
 			{items.map((item: any, index: any) => {

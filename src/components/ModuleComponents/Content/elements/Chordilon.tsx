@@ -1,10 +1,8 @@
 // import libraries
-import SheetMusic from '@slnsw/react-sheet-music';
 import abcjs from 'abcjs';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import styled from 'styled-components';
 import { v4 } from 'uuid';
 // import states
 import { themeModeState, themeState } from '../../../../recoil/theme';
@@ -131,10 +129,7 @@ ${baseKey ? `K: ${baseKey}` : ''}
 }
 
 function Chordilon(props: ChordilonProps) {
-	const themeMode = useRecoilValue(themeModeState);
-	const theme = useRecoilValue(themeState);
 	const [chordProgressions, setChordProgressions] = useState<any>([]);
-	const [abcAbcNotationRaw, setAbcAbcNotationRaw] = useState<any>(null);
 	const [chordSymbolsRaw, setChordSymbolsRaw] = useState<any>([]);
 	const [abcNotation, setAbcNotation] = useState<string>('');
 	const abcCardId = useState<any>(v4())[0];
