@@ -21,6 +21,8 @@ const StyledContainer = styled.section<BasicThemeProps>`
 	border-color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color1.main.value};
 
+	background-color: ${({ theme, themeMode }) =>
+		theme.palette.modes[themeMode].cardBg};
 `;
 
 type ContainerProps = {

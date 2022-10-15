@@ -7,7 +7,7 @@ import Title from './Title';
 import Card from './Card';
 
 type ComponentsObject = {
-	[key: string]: React.FC | ComponentsObject;
+	[key: string]: React.FC | ComponentsObject | any;
 };
 
 const Content: ComponentsObject = {

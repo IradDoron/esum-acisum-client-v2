@@ -34,6 +34,9 @@ interface Typography {
 	};
 	unit: string;
 	getFontSize(sizeValueKey: fontSizeValueKey): string;
+	fontFamilies: {
+		[fontFamilyKey: string]: string;
+	};
 }
 
 const typography: Typography = {
@@ -70,6 +73,11 @@ const typography: Typography = {
 	unit: 'rem',
 	getFontSize(sizeValueKey: fontSizeValueKey) {
 		return `${this.fontSizeValues[sizeValueKey]}${this.unit}`;
+	},
+	fontFamilies: {
+		primary: 'Roboto',
+		secondary: 'Roboto',
+		body: 'Roboto',
 	},
 };
 

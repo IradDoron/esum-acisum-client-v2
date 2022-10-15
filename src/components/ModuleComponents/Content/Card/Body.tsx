@@ -11,6 +11,7 @@ import { themeModeState, themeState } from '../../../../recoil/theme';
 
 const StyledBody = styled.section<BasicThemeProps>`
 	padding: ${({ theme }) => theme.spacing.getSpace('md')};
+	
 `;
 
 type BodyProps = {

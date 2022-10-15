@@ -44,7 +44,6 @@ const StyledTitle = styled.h1<BasicThemeProps>`
 function Title({ title }: any) {
 	const themeMode = useRecoilValue(themeModeState);
 	const theme = useRecoilValue(themeState);
-	console.log(theme, themeMode);
 	return (
 		<StyledTitle theme={theme} themeMode={themeMode}>
 			{title}

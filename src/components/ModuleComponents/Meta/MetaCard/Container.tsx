@@ -15,14 +15,17 @@ const StyledContainer = styled.div<ThemePropsWithColorKey>`
 	margin-top: ${({ theme }) => theme.spacing.getSpace('md')};
 	margin-bottom: ${({ theme }) => theme.spacing.getSpace('md')};
 	padding: ${({ theme }) => theme.spacing.getSpace('sm')};
-	border-color: ${({theme, themeMode, colorKey}) => theme.palette.modes[themeMode][colorKey].main.value};
+	border-color: ${({ theme, themeMode, colorKey }) =>
+		theme.palette.modes[themeMode][colorKey].main.value};
 	border-width: 6px;
 	border-style: solid;
 	border-radius: 32px;
+	background-color: ${({ theme, themeMode }) =>
+		theme.palette.modes[themeMode].cardBg};
 `;
 
 type ContainerProps = {
-	children: React.ReactNode; 
+	children: React.ReactNode;
 	colorKey: 'color1' | 'color2' | 'color3' | 'color4';
 };
 
@@ -31,7 +34,11 @@ function Container(props: ContainerProps) {
 	const theme = useRecoilValue(themeState);
 
 	return (
-		<StyledContainer theme={theme} themeMode={themeMode} colorKey={props.colorKey}>
+		<StyledContainer
+			theme={theme}
+			themeMode={themeMode}
+			colorKey={props.colorKey}
+		>
 			{props.children}
 		</StyledContainer>
 	);

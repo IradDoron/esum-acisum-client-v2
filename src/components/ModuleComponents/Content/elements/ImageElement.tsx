@@ -1,10 +1,24 @@
-function Image({ content }: any) {
+// import libraries
+import React from 'react';
+import styled from 'styled-components';
+
+// types
+interface Props {
+	content: string[];
+}
+
+const StyledVideoContainer = styled.div<any>`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+function Image(props: Props) {
+	const { content } = props;
 	return (
-		<img
-			src={`http://localhost:3001/${content}`}
-			alt="failed to load"
-			style={{ maxWidth: '800px' }}
-		/>
+		<StyledVideoContainer>
+			<img src={`http://localhost:3001/${content}`} alt="failed to load" />
+		</StyledVideoContainer>
 	);
 }
 

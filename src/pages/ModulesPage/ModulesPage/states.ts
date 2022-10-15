@@ -15,6 +15,16 @@ export const currModuleIndex = atom({
 	default: 1,
 });
 
+export const currModuleId = atom({
+	key: 'currModuleId',
+	default: 1,
+});
+
+export const currModuleIdInput = atom({
+	key: 'currModuleInput',
+	default: '',
+});
+
 export const currModuleIndexInput = atom({
 	key: 'currModuleIndexInput',
 	default: 1,

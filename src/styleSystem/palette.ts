@@ -1,10 +1,9 @@
 import {
-    DarkVariation,
-    LightVariation,
-    MainVariation,
-    Palette
+	DarkVariation,
+	LightVariation,
+	MainVariation,
+	Palette,
 } from './themeUtilsMy';
-
 
 const palette: Palette = {
 	modes: {
@@ -29,6 +28,7 @@ const palette: Palette = {
 				light: new LightVariation('#DFEEED', 'lightContrast'),
 				dark: new DarkVariation('#206A65', 'lightContrast'),
 			},
+			cardBg: '#FFFFFF',
 		},
 		dark: {
 			color1: {
@@ -51,6 +51,7 @@ const palette: Palette = {
 				light: new LightVariation('#DFEEED', 'lightContrast'),
 				dark: new DarkVariation('#206A65', 'lightContrast'),
 			},
+			cardBg: '#222222',
 		},
 	},
 };

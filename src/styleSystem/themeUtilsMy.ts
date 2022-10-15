@@ -35,6 +35,7 @@ interface ThemeMode {
 	color2: Color;
 	color3: Color;
 	color4: Color;
+	cardBg: string;
 }
 
 export interface Palette {
