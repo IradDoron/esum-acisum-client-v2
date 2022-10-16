@@ -7,7 +7,7 @@ import {
 	allModules,
 	currModuleData,
 	currModuleId,
-	currModuleIdInput
+	currModuleIdInput,
 } from '../states';
 
 // import libraries
@@ -20,6 +20,7 @@ const StyledInput = styled.input<InputProps>`
 	text-align: center;
 	border: none;
 	border-radius: 100px;
+	max-width: 136px;
 	padding-top: ${({ theme }) => theme.spacing.getSpace('xs2')};
 	padding-bottom: ${({ theme }) => theme.spacing.getSpace('xs2')};
 	margin-right: ${({ theme }) => theme.spacing.getSpace('md')};
@@ -39,8 +40,7 @@ const StyledInput = styled.input<InputProps>`
 
 	// responsive styles
 	${({ theme }) => theme.breakpoints.down('sm')} {
-		margin-right: ${({ theme }) => theme.spacing.getSpace('xs3')};
-		margin-left: ${({ theme }) => theme.spacing.getSpace('xs3')};
+		margin: 0;
 		padding-left: ${({ theme }) => theme.spacing.getSpace('xs')};
 		padding-right: ${({ theme }) => theme.spacing.getSpace('xs')};
 		font-size: ${({ theme }) => theme.typography.getFontSize('xs')};
@@ -65,8 +65,7 @@ const StyledButton = styled.button<ButtonProps>`
 
 	// responsive styles
 	${({ theme }) => theme.breakpoints.down('sm')} {
-		margin-right: ${({ theme }) => theme.spacing.getSpace('xs3')};
-		margin-left: ${({ theme }) => theme.spacing.getSpace('xs3')};
+		margin: 0;
 		padding-left: ${({ theme }) => theme.spacing.getSpace('xs')};
 		padding-right: ${({ theme }) => theme.spacing.getSpace('xs')};
 		font-size: ${({ theme }) => theme.typography.getFontSize('xs')};
@@ -80,6 +79,11 @@ const StyledIdSearchContainer = styled.div<BasicThemeProps>`
 	max-width: 1000px;
 	margin: auto;
 	padding-bottom: ${({ theme }) => theme.spacing.getSpace('sm')};
+
+	// responsive styles
+	${({ theme }) => theme.breakpoints.down('sm')} {
+		justify-content: space-evenly;
+	}
 `;
 
 const StyledChipsContainer = styled.div<BasicThemeProps>`
