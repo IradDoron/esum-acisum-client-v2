@@ -5,3 +5,5 @@ export const URLs = {
 };
 
 export const CURR_ENV_URL = URLs.prod;
+
+export const GOLDEN_RATIO = 1.61803398875;

@@ -29,6 +29,7 @@ const palette: Palette = {
 				dark: new DarkVariation('#206A65', 'lightContrast'),
 			},
 			cardBg: '#FFFFFF',
+			bodyColor: '#050505',
 		},
 		dark: {
 			color1: {
@@ -52,6 +53,7 @@ const palette: Palette = {
 				dark: new DarkVariation('#206A65', 'lightContrast'),
 			},
 			cardBg: '#222222',
+			bodyColor: '#FFFFFF',
 		},
 	},
 };

@@ -77,7 +77,7 @@ const typography: Typography = {
 	fontFamilies: {
 		primary: 'Roboto',
 		secondary: 'Roboto',
-		body: 'Roboto',
+		body: 'Helvetica Neue, Helvetica, Arial, sans-serif',
 	},
 };
 

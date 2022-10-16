@@ -14,8 +14,10 @@ const StyledParagraph = styled.p<BasicThemeProps>`
 	margin-bottom: ${({ theme }) => theme.spacing.getSpace('xs2')};
 	font-size: ${({ theme }) => theme.typography.getFontSize('xs')};
 	font-family: ${({ theme }) => theme.typography.fontFamilies.body};
+	color: ${({ theme, themeMode }) => theme.palette.modes[themeMode].bodyColor};
+	font-weight: normal;
 	${({ theme }) => theme.breakpoints.down('sm')} {
-		font-size: ${({ theme }) => theme.typography.getFontSize('xs2')};
+		font-size: ${({ theme }) => theme.typography.getFontSize('xs')};
 	}
 
 	${({ theme }) => theme.breakpoints.between('sm', 'md')} {
