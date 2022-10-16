@@ -4,6 +4,7 @@ import { useRecoilValue } from 'recoil';
 
 // import components
 import MetaCard from '../MetaCard';
+import ParagraphElement from '../../Content/elements/ParagraphElement';
 
 // import states
 import { allModules } from '../../../../pages/ModulesPage/ModulesPage/states';
@@ -37,7 +38,11 @@ function Prerequisites(props: Props) {
 			) : (
 				<ul>
 					{prerequisitesList?.map((prerequisitesList: any) => {
-						return <li key={prerequisitesList}>{prerequisitesList}</li>;
+						return (
+							<li key={prerequisitesList}>
+								<ParagraphElement content={prerequisitesList} />
+							</li>
+						);
 					})}
 				</ul>
 			)}

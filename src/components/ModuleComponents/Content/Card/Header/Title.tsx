@@ -11,12 +11,18 @@ import { themeModeState, themeState } from '../../../../../recoil/theme';
 
 // styled components
 const StyledTitle = styled.h2<BasicThemeProps>`
-width:fit-content;
-margin: auto;
+	width: fit-content;
+	margin: auto;
 	color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color1.main.contrast};
+	font-size: ${({ theme }) => theme.typography.getFontSize('xl')};
 
-        font-size: ${({theme}) => theme.typography.getFontSize('xl')};
+
+	${({ theme }) => theme.breakpoints.down('sm')} {
+		font-size: ${({ theme }) => theme.typography.getFontSize('lg')};
+		padding-right: ${({ theme }) => theme.spacing.getSpace('lg')};
+		padding-left: ${({ theme }) => theme.spacing.getSpace('lg')};
+	}
 `;
 
 // types

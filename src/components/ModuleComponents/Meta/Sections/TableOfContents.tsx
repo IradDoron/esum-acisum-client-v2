@@ -1,4 +1,9 @@
+// import components
 import MetaCard from '../MetaCard';
+import ParagraphElement from '../../Content/elements/ParagraphElement';
+
+// import libraries
+import React from 'react';
 
 function TableOfContents({ tableOfContents }: any) {
 	return (
@@ -6,7 +11,11 @@ function TableOfContents({ tableOfContents }: any) {
 			<MetaCard.Title>תוכן עניינים</MetaCard.Title>
 			<ul>
 				{tableOfContents()?.map((title: any) => {
-					return <li key={title}>{title}</li>;
+					return (
+						<li key={title}>
+							<ParagraphElement content={title} />
+						</li>
+					);
 				})}
 			</ul>
 		</MetaCard.Container>

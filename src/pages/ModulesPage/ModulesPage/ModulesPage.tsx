@@ -27,6 +27,7 @@ const StyledPageWrapper = styled.div<BasicThemeProps>`
 		theme.palette.modes[themeMode].color1.light.value};
 
 	height: 100%;
+	width: 100%;
 `;
 
 const { Meta, Content } = ModuleComponents;

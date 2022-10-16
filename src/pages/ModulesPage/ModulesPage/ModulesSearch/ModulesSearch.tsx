@@ -7,7 +7,7 @@ import {
 	allModules,
 	currModuleData,
 	currModuleId,
-	currModuleIdInput,
+	currModuleIdInput
 } from '../states';
 
 // import libraries
@@ -17,11 +17,34 @@ import styled from 'styled-components';
 
 // styled components
 const StyledInput = styled.input<InputProps>`
-	height: 30px;
-	width: 150px;
-	font-size: ${({ theme }) => theme.typography.getFontSize('md')};
 	text-align: center;
-	padding: ${({ theme }) => theme.spacing.getSpace('md')};
+	border: none;
+	border-radius: 100px;
+	padding-top: ${({ theme }) => theme.spacing.getSpace('xs2')};
+	padding-bottom: ${({ theme }) => theme.spacing.getSpace('xs2')};
+	margin-right: ${({ theme }) => theme.spacing.getSpace('md')};
+	margin-left: ${({ theme }) => theme.spacing.getSpace('md')};
+	font-size: ${({ theme }) => theme.typography.getFontSize('md')};
+	border-color: ${({ theme, themeMode }) =>
+		theme.palette.modes[themeMode].color1.main.value};
+
+	border-style: solid;
+	border-width: 4px;
+
+	&:focus {
+		outline: none;
+		border-color: ${({ theme, themeMode }) =>
+			theme.palette.modes[themeMode].color2.main.value};
+	}
+
+	// responsive styles
+	${({ theme }) => theme.breakpoints.down('sm')} {
+		margin-right: ${({ theme }) => theme.spacing.getSpace('xs3')};
+		margin-left: ${({ theme }) => theme.spacing.getSpace('xs3')};
+		padding-left: ${({ theme }) => theme.spacing.getSpace('xs')};
+		padding-right: ${({ theme }) => theme.spacing.getSpace('xs')};
+		font-size: ${({ theme }) => theme.typography.getFontSize('xs')};
+	}
 `;
 
 const StyledButton = styled.button<ButtonProps>`
@@ -29,26 +52,65 @@ const StyledButton = styled.button<ButtonProps>`
 		theme.palette.modes[themeMode].color1.main.value};
 	color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color1.main.contrast};
-	padding: ${({ theme }) => theme.spacing.getSpace('sm')};
+	padding-top: ${({ theme }) => theme.spacing.getSpace('xs2')};
+	padding-bottom: ${({ theme }) => theme.spacing.getSpace('xs2')};
+	padding-left: ${({ theme }) => theme.spacing.getSpace('md')};
+	padding-right: ${({ theme }) => theme.spacing.getSpace('md')};
+	margin-right: ${({ theme }) => theme.spacing.getSpace('md')};
+	margin-left: ${({ theme }) => theme.spacing.getSpace('md')};
 	font-size: ${({ theme }) => theme.typography.getFontSize('md')};
 	cursor: pointer;
 	border: none;
+	border-radius: 100px;
+
+	// responsive styles
+	${({ theme }) => theme.breakpoints.down('sm')} {
+		margin-right: ${({ theme }) => theme.spacing.getSpace('xs3')};
+		margin-left: ${({ theme }) => theme.spacing.getSpace('xs3')};
+		padding-left: ${({ theme }) => theme.spacing.getSpace('xs')};
+		padding-right: ${({ theme }) => theme.spacing.getSpace('xs')};
+		font-size: ${({ theme }) => theme.typography.getFontSize('xs')};
+	}
+`;
+
+const StyledIdSearchContainer = styled.div<BasicThemeProps>`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 1000px;
+	margin: auto;
+	padding-bottom: ${({ theme }) => theme.spacing.getSpace('sm')};
 `;
 
 const StyledChipsContainer = styled.div<BasicThemeProps>`
 	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	max-width: 1000px;
+	margin: auto;
 `;
 
 const StyledChip = styled.div<ChipProps>`
 	width: fit-content;
+	text-align: center;
 	padding: ${({ theme }) => theme.spacing.getSpace('xs2')};
-	margin: ${({ theme }) => theme.spacing.getSpace('xs')};
 	border-radius: 50px;
 	background-color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color2.main.value};
 	color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color2.main.contrast};
 	cursor: pointer;
+
+	// responsive styles
+	${({ theme }) => theme.breakpoints.down('sm')} {
+		font-size: ${({ theme }) => theme.typography.getFontSize('xs2')};
+		margin: ${({ theme }) => theme.spacing.getSpace('xs2')};
+	}
+`;
+
+const StyledModulesSearchContainer = styled.div<BasicThemeProps>`
+	margin-bottom: ${({ theme }) => theme.spacing.getSpace('md')};
+	padding-top: ${({ theme }) => theme.spacing.getSpace('sm')};
 `;
 
 // types and interfaces
@@ -77,7 +139,7 @@ function ModulesSearch() {
 	const [currModuleIdState, setCurrModuleIdState] =
 		useRecoilState(currModuleId);
 	const [currModuleIdInputState, setCurrModuleIdInputState] =
-		useRecoilState(currModuleIdInput);
+		useRecoilState<any>(currModuleIdInput);
 	const allModulesState = useRecoilValue(allModules);
 	const [allModulesTitles, setAllModulesTitles] = useState<any>([]);
 	const setCurrModuleDataState = useSetRecoilState(currModuleData);
@@ -88,7 +150,6 @@ function ModulesSearch() {
 
 	// helpers
 	const getModuleIdFromTitle = (title: string) => {
-		console.log(title);
 		const module = allModulesState.find(
 			(module: any) => module.meta.title === title
 		) as any;
@@ -112,7 +173,7 @@ function ModulesSearch() {
 	useEffect(() => {
 		if (currModuleIdState) {
 			const moduleData = allModulesState.find(
-				(module: any) => module.id === currModuleIdState
+				(module: any) => module.id === Number(currModuleIdState)
 			);
 			setCurrModuleDataState(moduleData);
 		}
@@ -121,11 +182,11 @@ function ModulesSearch() {
 	// events handlers
 	const handleModuleIdChange = (event: any): void => {
 		const { value } = event.target;
-		setCurrModuleIdInputState(value);
+		setCurrModuleIdInputState(Number(value));
 	};
 
-	const handleOpenModuleClick = (currInput: any, setter: any): void => {
-		setter(currInput);
+	const handleOpenModuleClick = (currInput: number, setter: any): void => {
+		setter(Number(currInput));
 	};
 
 	const handleClickChip = (title: any): void => {
@@ -134,23 +195,26 @@ function ModulesSearch() {
 		setCurrModuleIdInputState(moduleId);
 	};
 	return (
-		<>
-			<StyledInput
-				type="number"
-				value={Number(currModuleIdInputState)}
-				onChange={(e) => handleModuleIdChange(e)}
-				theme={theme}
-				themeMode={themeMode}
-			/>
-			<StyledButton
-				onClick={() =>
-					handleOpenModuleClick(currModuleIdInputState, setCurrModuleIdState)
-				}
-				theme={theme}
-				themeMode={themeMode}
-			>
-				פתח מודול
-			</StyledButton>
+		<StyledModulesSearchContainer theme={theme} themeMode={themeMode}>
+			<StyledIdSearchContainer theme={theme} themeMode={themeMode}>
+				<StyledInput
+					type="text"
+					value={Number(currModuleIdInputState)}
+					onChange={(e) => handleModuleIdChange(e)}
+					theme={theme}
+					themeMode={themeMode}
+				/>
+				<StyledButton
+					onClick={() =>
+						handleOpenModuleClick(currModuleIdInputState, setCurrModuleIdState)
+					}
+					theme={theme}
+					themeMode={themeMode}
+				>
+					פתח מודול
+				</StyledButton>
+			</StyledIdSearchContainer>
+
 			<StyledChipsContainer theme={theme} themeMode={themeMode}>
 				{allModulesTitles &&
 					allModulesTitles.map((title: any) => {
@@ -165,7 +229,7 @@ function ModulesSearch() {
 						);
 					})}
 			</StyledChipsContainer>
-		</>
+		</StyledModulesSearchContainer>
 	);
 }
 

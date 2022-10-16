@@ -14,6 +14,7 @@ const StyledTitle = styled.h2<BasicThemeProps>`
 	width: fit-content;
 	font-weight: normal;
 	font-size: ${({ theme }) => theme.typography.getFontSize('md')};
+	margin-bottom: ${({ theme }) => theme.spacing.getSpace('xs2')};
 `;
 
 function Title({ children }: any) {

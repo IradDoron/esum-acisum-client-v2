@@ -8,12 +8,12 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { allModules, currModuleData, currModuleIndex } from './states';
 
 // import constants
-import { URLs } from '../../../recoil/constants';
+import { CURR_ENV_URL } from '../../../recoil/constants';
 
 export const useFetchModules = () => {
 	const setAllModules = useSetRecoilState(allModules);
 	useEffect(() => {
-		const url = URLs.prod + '/modules';
+		const url = CURR_ENV_URL + '/modules';
 
 		(async () => {
 			try {

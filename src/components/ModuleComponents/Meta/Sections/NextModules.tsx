@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
 // import components
+import ParagraphElement from '../../Content/elements/ParagraphElement';
 import MetaCard from '../MetaCard';
 
 // import states
@@ -31,7 +32,7 @@ function NextModules(props: Props) {
 			<MetaCard.Title>מודולים להמשך</MetaCard.Title>
 			<ul>
 				{modulesTitles?.map((nextModule: any) => {
-					return <li key={nextModule}>{nextModule}</li>;
+					return <li key={nextModule}><ParagraphElement content={nextModule}/></li>;
 				})}
 			</ul>
 		</MetaCard.Container>

@@ -16,21 +16,24 @@ import Title from './Title';
 
 // styled components
 const StyledHeader = styled.header<BasicThemeProps>`
-	height: 80px;
+	height: fit-content;
+	text-align: center;
+	min-height: 80px;
 	border-bottom-width: 10px;
 	border-bottom-style: solid;
 	border-radius: 20px 20px 0 0;
 	padding: ${({ theme }) => theme.spacing.getSpace('xs3')};
+
 	border-bottom-color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color2.main.value};
 	background-color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color1.main.value};
 
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
 	position: relative;
+
 `;
 
 // types

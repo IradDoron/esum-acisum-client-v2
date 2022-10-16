@@ -1,20 +1,35 @@
-import Element from '../Element';
+// import types
+import { BasicThemeProps } from '../../../../types/styledComponentsInterfaces';
 
 // import libraries
 import React from 'react';
+import styled from 'styled-components';
+import { useRecoilValue } from 'recoil';
+
+// import states
+import { themeModeState, themeState } from '../../../../recoil/theme';
+
+// styled components
+import ListItem from './ListItem';
+
+const StyledUnorderedList = styled.ul<BasicThemeProps>`
+	
+`;
 
 function UnorderedList(props: any) {
+	const theme = useRecoilValue(themeState);
+	const themeMode = useRecoilValue(themeModeState);
 	const { items } = props;
 	return (
-		<ul>
+		<StyledUnorderedList theme={theme} themeMode={themeMode}>
 			{items.map((item: any, index: any) => {
 				return (
-					<Element key={index} content={item.content} type={item.type}>
+					<ListItem key={index} content={item.content} type={item.type}>
 						{item.children}
-					</Element>
+					</ListItem>
 				);
 			})}
-		</ul>
+		</StyledUnorderedList>
 	);
 }
 

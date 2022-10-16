@@ -13,10 +13,15 @@ import { themeModeState, themeState } from '../../../../../recoil/theme';
 const StyledDescription = styled.h3<BasicThemeProps>`
 	width: fit-content;
 	margin: auto;
+	text-align: center;
     font-weight: normal;
     font-size: ${({theme}) => theme.typography.getFontSize('sm')};
 	color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color1.main.contrast};
+
+${({ theme }) => theme.breakpoints.down('sm')} {
+		font-size: ${({ theme }) => theme.typography.getFontSize('sm')};
+	}
 	
 `;
 

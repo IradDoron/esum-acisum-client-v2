@@ -14,6 +14,17 @@ const StyledParagraph = styled.p<BasicThemeProps>`
 	margin-bottom: ${({ theme }) => theme.spacing.getSpace('xs2')};
 	font-size: ${({ theme }) => theme.typography.getFontSize('xs')};
 	font-family: ${({ theme }) => theme.typography.fontFamilies.body};
+	${({ theme }) => theme.breakpoints.down('sm')} {
+		font-size: ${({ theme }) => theme.typography.getFontSize('xs2')};
+	}
+
+	${({ theme }) => theme.breakpoints.between('sm', 'md')} {
+		font-size: ${({ theme }) => theme.typography.getFontSize('xs')};
+	}
+
+	${({ theme }) => theme.breakpoints.up('lg')} {
+		font-size: ${({ theme }) => theme.typography.getFontSize('sm')};
+	}
 `;
 
 function Paragraph({ content }: any) {
@@ -27,5 +38,3 @@ function Paragraph({ content }: any) {
 }
 
 export default Paragraph;
-
-
