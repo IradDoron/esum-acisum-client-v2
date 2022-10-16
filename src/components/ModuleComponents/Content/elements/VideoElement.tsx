@@ -25,6 +25,9 @@ const StyledVideoContainer = styled.div<any>`
 	align-items: center;
 `;
 const StyledVideo = styled.iframe<StyledVideoProps>`
+	margin-top: ${({ theme }) => theme.spacing.getSpace('sm')};
+	margin-bottom: ${({ theme }) => theme.spacing.getSpace('sm')};
+
 	// responsive styles
 	${({ theme }) => theme.breakpoints.down('sm')} {
 		width: 262px;
@@ -40,8 +43,6 @@ const StyledVideo = styled.iframe<StyledVideoProps>`
 		width: 600px;
 		height: calc(600px / ${GOLDEN_RATIO});
 	}
-
-
 `;
 
 function Video({ content }: any) {

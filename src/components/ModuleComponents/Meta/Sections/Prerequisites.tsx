@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
 // import components
-import MetaCard from '../MetaCard';
 import ParagraphElement from '../../Content/elements/ParagraphElement';
+import MetaCard from '../MetaCard';
 
 // import states
 import { allModules } from '../../../../pages/ModulesPage/ModulesPage/states';
@@ -33,7 +33,7 @@ function Prerequisites(props: Props) {
 			<MetaCard.Title>מודולים קודמים נחוצים</MetaCard.Title>
 			{prerequisitesList.length === 0 ? (
 				<ul>
-					<li>אין מודולים קודמים נחוצים</li>
+					<li><ParagraphElement content={'אין מודולים קודמים נחוצים'}/></li>
 				</ul>
 			) : (
 				<ul>

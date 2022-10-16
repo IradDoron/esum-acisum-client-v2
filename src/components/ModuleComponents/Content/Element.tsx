@@ -8,8 +8,7 @@ import Chordilon from './elements/Chordilon';
 
 function Element(props: any) {
 	// type is the type of the comoonent
-	const { type, content, children, tonic, scaleType } = props;
-	
+	const { type, content, children, tonic, scaleType, title } = props;
 
 	function renderElement(type: string, content: any, children: any) {
 		switch (type) {
@@ -17,10 +16,10 @@ function Element(props: any) {
 				return <ParagraphElement content={content}>{content}</ParagraphElement>;
 			}
 			case 'video': {
-				return <VideoElement content={content}/>;
+				return <VideoElement content={content} />;
 			}
 			case 'image': {
-				return <ImageElement content={content}/>;
+				return <ImageElement content={content} />;
 			}
 			case 'orderedList': {
 				return <OrderedList content={content} items={children} />;
@@ -34,7 +33,12 @@ function Element(props: any) {
 
 			case 'chordilon': {
 				return (
-					<Chordilon content={content} tonic={tonic} scaleType={scaleType} />
+					<Chordilon
+						content={content}
+						tonic={tonic}
+						scaleType={scaleType}
+						title={title}
+					/>
 				);
 			}
 			default: {

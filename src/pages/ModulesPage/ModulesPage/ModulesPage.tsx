@@ -85,6 +85,7 @@ function ModulesPage() {
 																	tonic={element.tonic}
 																	scaleType={element.scaleType}
 																	key={index}
+																	title={element.title}
 																></Content.Element>
 															);
 														}

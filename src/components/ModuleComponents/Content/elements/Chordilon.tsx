@@ -2,8 +2,17 @@
 import abcjs from 'abcjs';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
+import styled from 'styled-components';
 import { v4 } from 'uuid';
 
+// import types and interfaces
+import { BasicThemeProps } from '../../../../types/styledComponentsInterfaces';
+
+// import states
+import { themeModeState, themeState } from '../../../../recoil/theme';
+
+// types and interfaces
 type Degree = string;
 type Tonic = 'C' | 'D' | 'E' | 'F' | 'G' | 'A' | 'B';
 type ScaleType = 'major' | 'minorNatural' | 'minorHarmonic' | 'minorMelodic';
@@ -12,6 +21,7 @@ type ChordilonProps = {
 	content: any;
 	tonic: Tonic;
 	scaleType: ScaleType;
+	title?: string;
 };
 
 interface AbcNotationRawChordsProgressions {
@@ -21,6 +31,7 @@ interface AbcNotationRawChordsProgressions {
 	baseKey: string | null; // example: 'C'
 }
 
+// helpers
 function degreeToChordSymbol(
 	degree: Degree,
 	tonic: Tonic,
@@ -125,7 +136,30 @@ ${baseKey ? `K: ${baseKey}` : ''}
 	return abcNotation;
 }
 
+// styled components
+const StyledAccExerciseTitle = styled.h2<BasicThemeProps>`
+	width: fit-content;
+	margin: 0 auto;
+	margin-top: ${({ theme }) => theme.spacing.getSpace('md')};
+	border-bottom-color: ${({ theme, themeMode }) =>
+		theme.palette.modes[themeMode].color1.main.value};
+
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+
+	// responsive styles
+	${({ theme }) => theme.breakpoints.down('sm')} {
+		font-size: ${({ theme }) => theme.typography.getFontSize('xs')};
+	}
+
+	${({ theme }) => theme.breakpoints.up('sm')} {
+		font-size: ${({ theme }) => theme.typography.getFontSize('lg')};
+	}
+`;
+
 function Chordilon(props: ChordilonProps) {
+	const theme = useRecoilValue(themeState);
+	const themeMode = useRecoilValue(themeModeState);
 	const [chordProgressions, setChordProgressions] = useState<any>([]);
 	const [chordSymbolsRaw, setChordSymbolsRaw] = useState<any>([]);
 	const [abcNotation, setAbcNotation] = useState<string>('');
@@ -134,6 +168,7 @@ function Chordilon(props: ChordilonProps) {
 		content: { modeName, progressions },
 		tonic,
 		scaleType,
+		title,
 	} = props;
 
 	useEffect(() => {
@@ -180,8 +215,18 @@ function Chordilon(props: ChordilonProps) {
 			});
 		}
 	}, [abcNotation, abcCardId]);
+	console.log(title);
 
-	return <div id={abcCardId}></div>;
+	return (
+		<>
+			{(title && (
+				<StyledAccExerciseTitle theme={theme} themeMode={themeMode}>
+					{title}
+				</StyledAccExerciseTitle>
+			)) || <></>}
+			<div id={abcCardId}></div>
+		</>
+	);
 }
 
 export default Chordilon;
