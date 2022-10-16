@@ -10,7 +10,7 @@ interface Props {
 	content: string[];
 }
 
-const StyledVideoContainer = styled.div<any>`
+const StyledImageContainer = styled.div<any>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -19,9 +19,9 @@ const StyledVideoContainer = styled.div<any>`
 function Image(props: Props) {
 	const { content } = props;
 	return (
-		<StyledVideoContainer>
-			<img src={`${URLs.prod}/${content}`} alt="failed to load" />
-		</StyledVideoContainer>
+		<StyledImageContainer>
+			<img src={`${URLs.server}/${content}`} alt="failed to load" />
+		</StyledImageContainer>
 	);
 }
 
