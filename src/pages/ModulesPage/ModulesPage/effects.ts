@@ -7,17 +7,17 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 // import states
 import { allModules, currModuleData, currModuleIndex } from './states';
 
+// import constants
+import { URLs } from '../../../recoil/constants';
+
 export const useFetchModules = () => {
 	const setAllModules = useSetRecoilState(allModules);
 	useEffect(() => {
-		const url = {
-			dev: 'http://localhost:3001/modules',
-			prod: 'https://esum-acisum-server.herokuapp.com/modules',
-		};
+		const url = URLs.prod + '/modules';
 
 		(async () => {
 			try {
-				const response = await axios.get(url.prod);
+				const response = await axios.get(url);
 				setAllModules(response.data);
 			} catch (error) {
 				console.log(error);

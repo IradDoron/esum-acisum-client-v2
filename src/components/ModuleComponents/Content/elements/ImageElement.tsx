@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// import constants
+import { URLs } from '../../../../recoil/constants';
+
 // types
 interface Props {
 	content: string[];
@@ -17,7 +20,7 @@ function Image(props: Props) {
 	const { content } = props;
 	return (
 		<StyledVideoContainer>
-			<img src={`http://localhost:3001/${content}`} alt="failed to load" />
+			<img src={`${URLs.prod}/${content}`} alt="failed to load" />
 		</StyledVideoContainer>
 	);
 }
