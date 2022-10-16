@@ -10,11 +10,14 @@ import { allModules, currModuleData, currModuleIndex } from './states';
 export const useFetchModules = () => {
 	const setAllModules = useSetRecoilState(allModules);
 	useEffect(() => {
-		const url = 'http://localhost:3001/modules';
+		const url = {
+			dev: 'http://localhost:3001/modules',
+			prod: 'https://esum-acisum-server.herokuapp.com/modules',
+		};
 
 		(async () => {
 			try {
-				const response = await axios.get(url);
+				const response = await axios.get(url.prod);
 				setAllModules(response.data);
 			} catch (error) {
 				console.log(error);
