@@ -7,10 +7,13 @@ import { themeModeState, themeState } from '../../../../../recoil/theme';
 import { allModules, currModuleId, currModuleIdInput } from '../../states';
 
 // import components
+import StyledLabel from '../StyledLabel';
 import StyledChip from './StyledChip';
 import StyledChipsContainer from './StyledChipsContainer';
 import StyledChipsSearchContainer from './StyledChipsSearchContainer';
-import StyledLabel from '../StyledLabel';
+
+// import helpers
+import scrollToTop from '../../../../../helpers/scrollToTop';
 
 function ChipsSearch() {
 	// states
@@ -34,6 +37,7 @@ function ChipsSearch() {
 		const moduleId = getModuleIdFromTitle(title);
 		setCurrModuleIdState(moduleId);
 		setCurrModuleIdInputState(moduleId);
+		scrollToTop();
 	};
 
 	// effects

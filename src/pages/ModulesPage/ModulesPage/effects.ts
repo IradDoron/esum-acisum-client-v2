@@ -33,5 +33,6 @@ export const useUpdateCurrModuleData = () => {
 
 	useEffect(() => {
 		setCurrModuleData(allModulesState[currModuleIndexState]);
+		
 	}, [allModulesState, currModuleIndexState, setCurrModuleData]);
 };

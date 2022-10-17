@@ -6,4 +6,4 @@ Esum Acisum is a website for learning piano. It is a work in progress and in the
 
 ## How to use it?
 
-The website is hosted on 
+The website is hosted on https://main--loquacious-zuccutto-671d0a.netlify.app/

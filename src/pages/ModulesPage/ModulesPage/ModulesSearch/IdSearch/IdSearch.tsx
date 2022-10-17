@@ -6,6 +6,9 @@ import { currModuleId, currModuleIdInput } from '../../states';
 import React from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
+// import helpers
+import scrollToTop from '../../../../../helpers/scrollToTop';
+
 // import conponents
 import StyledLabel from '../StyledLabel';
 import StyledButton from './StyledButton';
@@ -28,6 +31,7 @@ function IdSearch() {
 
 	const handleOpenModuleClick = (): void => {
 		setCurrModuleIdState(Number(currModuleIdInputState));
+		scrollToTop();
 	};
 
 	const handleFocus = (event: any): void => {
