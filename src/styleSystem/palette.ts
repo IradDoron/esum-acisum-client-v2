@@ -2,7 +2,7 @@ import {
 	DarkVariation,
 	LightVariation,
 	MainVariation,
-	Palette,
+	Palette
 } from './themeUtilsMy';
 
 const palette: Palette = {
@@ -15,12 +15,12 @@ const palette: Palette = {
 			},
 			color2: {
 				main: new MainVariation('#4E0ED9', 'lightContrast'),
-				light: new LightVariation('#DFEEED', 'lightContrast'),
+				light: new LightVariation('#D3BFFF', 'lightContrast'),
 				dark: new DarkVariation('#206A65', 'lightContrast'),
 			},
 			color3: {
 				main: new MainVariation('#D91E75', 'lightContrast'),
-				light: new LightVariation('#DFEEED', 'lightContrast'),
+				light: new LightVariation('#FFC8E1', 'lightContrast'),
 				dark: new DarkVariation('#206A65', 'lightContrast'),
 			},
 			color4: {

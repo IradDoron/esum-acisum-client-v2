@@ -215,7 +215,6 @@ function Chordilon(props: ChordilonProps) {
 			});
 		}
 	}, [abcNotation, abcCardId]);
-	console.log(title);
 
 	return (
 		<>
