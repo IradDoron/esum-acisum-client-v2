@@ -11,18 +11,21 @@ import { themeModeState, themeState } from '../../../../../recoil/theme';
 
 // styled components
 const StyledCount = styled.div<BasicThemeProps>`
+	// Colors
 	color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color2.main.value};
+
+	// Typography
 	font-size: ${({ theme }) => theme.typography.getFontSize('lg')};
 	font-weight: bold;
-	border-width: 4px;
-	border-style: solid;
+	letter-spacing: 2px;
+
+	// Sizes
 	width: fit-content;
 	min-width: 40px;
 	min-height: 40px;
-	border-radius: 50%;
-	border-color: ${({ theme, themeMode }) =>
-		theme.palette.modes[themeMode].color2.main.value};
+
+	// Layout
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -41,7 +44,7 @@ function Count(props: CountProps) {
 	const themeMode = useRecoilValue(themeModeState);
 	return (
 		<StyledCount theme={theme} themeMode={themeMode}>
-			{props.count}
+			{props.count}.
 		</StyledCount>
 	);
 }
