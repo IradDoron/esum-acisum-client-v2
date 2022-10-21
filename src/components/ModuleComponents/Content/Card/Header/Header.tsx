@@ -16,19 +16,21 @@ import Title from './Title';
 
 // styled components
 const StyledHeader = styled.header<BasicThemeProps>`
-	height: fit-content;
-	text-align: center;
-	min-height: 80px;
-	border-bottom-width: 10px;
-	border-bottom-style: solid;
-	border-radius: 20px 20px 0 0;
-	padding: ${({ theme }) => theme.spacing.getSpace('xs3')};
-
+	// Colors
 	border-bottom-color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color2.main.value};
-	background-color: ${({ theme, themeMode }) =>
-		theme.palette.modes[themeMode].color1.main.value};
 
+	background-color: ${({ theme, themeMode }) =>
+		theme.palette.modes[themeMode].color2.light.value};
+
+	// Sizes
+	border-bottom-width: 8px;
+	min-height: 80px;
+	height: fit-content;
+
+	// Layout
+	text-align: center;
+	padding: ${({ theme }) => theme.spacing.getSpace('xs3')};
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
@@ -37,8 +39,7 @@ const StyledHeader = styled.header<BasicThemeProps>`
 	// Border
 	border-top-right-radius: ${({ theme }) => theme.border.getBorderRadius('sm')};
 	border-top-left-radius: ${({ theme }) => theme.border.getBorderRadius('sm')};
-
-
+	border-bottom-style: solid;
 `;
 
 // types

@@ -14,6 +14,14 @@ const StyledBody = styled.section<BasicThemeProps>`
 	${({ theme }) => theme.breakpoints.down('sm')} {
 		padding: ${({ theme }) => theme.spacing.getSpace('xs2')};
 	}
+
+	/* background: linear-gradient(
+		318deg,
+		${({ theme, themeMode }) =>
+		theme.palette.modes[themeMode].cardBg} 0%,
+		${({ theme, themeMode }) =>
+		theme.palette.modes[themeMode].color2.main.value}8 100%
+	); */
 `;
 
 type BodyProps = {

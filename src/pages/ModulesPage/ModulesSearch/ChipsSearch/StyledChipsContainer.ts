@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // import types
-import { BasicThemeProps } from '../../../../../types/styledComponentsInterfaces';
+import { BasicThemeProps } from '../../../../types/styledComponentsInterfaces';
 
 const StyledChipsContainer = styled.div<BasicThemeProps>`
 	// Sizes

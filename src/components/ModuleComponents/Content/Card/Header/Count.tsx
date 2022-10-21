@@ -13,12 +13,16 @@ import { themeModeState, themeState } from '../../../../../recoil/theme';
 const StyledCount = styled.div<BasicThemeProps>`
 	// Colors
 	color: ${({ theme, themeMode }) =>
+		theme.palette.modes[themeMode].color2.light.contrast};
+
+	text-decoration-color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color2.main.value};
 
 	// Typography
-	font-size: ${({ theme }) => theme.typography.getFontSize('lg')};
+	font-size: ${({ theme }) => theme.typography.getFontSize('sm')};
 	font-weight: bold;
 	letter-spacing: 2px;
+	font-family: ${({ theme }) => theme.typography.fontFamilies.primary};
 
 	// Sizes
 	width: fit-content;
@@ -32,6 +36,9 @@ const StyledCount = styled.div<BasicThemeProps>`
 	position: absolute;
 	top: 0;
 	right: 0;
+
+	// Spacing
+	margin-top: -${({ theme }) => theme.spacing.getSpace('xs3')};
 `;
 
 // types
@@ -40,11 +47,12 @@ type CountProps = {
 };
 
 function Count(props: CountProps) {
+	const { count } = props;
 	const theme = useRecoilValue(themeState);
 	const themeMode = useRecoilValue(themeModeState);
 	return (
 		<StyledCount theme={theme} themeMode={themeMode}>
-			{props.count}.
+			{`פרק ${count}`}
 		</StyledCount>
 	);
 }

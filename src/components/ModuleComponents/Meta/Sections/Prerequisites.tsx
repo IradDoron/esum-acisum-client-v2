@@ -7,7 +7,7 @@ import ParagraphElement from '../../Content/elements/ParagraphElement';
 import MetaCard from '../MetaCard';
 
 // import states
-import { allModules } from '../../../../pages/ModulesPage/ModulesPage/states';
+import { allModules } from '../../../../pages/ModulesPage/states';
 
 // import helpers
 import { getModulesTitlesFromIds } from '../../helpers';
@@ -30,7 +30,7 @@ function Prerequisites(props: Props) {
 	}, [prerequisites, allModulesState]);
 	return (
 		<MetaCard.Container colorKey="color1">
-			<MetaCard.Title>מודולים קודמים נחוצים</MetaCard.Title>
+			<MetaCard.Title colorKey="color1">מודולים קודמים נחוצים</MetaCard.Title>
 			{prerequisitesList.length === 0 ? (
 				<ul>
 					<li><ParagraphElement content={'אין מודולים קודמים נחוצים'}/></li>

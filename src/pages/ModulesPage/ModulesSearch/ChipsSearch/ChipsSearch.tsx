@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 // import states
-import { themeModeState, themeState } from '../../../../../recoil/theme';
-import { allModules, currModuleId, currModuleIdInput } from '../../states';
+import { themeModeState, themeState } from '../../../../recoil/theme';
+import { allModules, currModuleId, currModuleIdInput } from '../../../ModulesPage/states';
 
 // import components
 import StyledLabel from '../StyledLabel';
@@ -13,7 +13,7 @@ import StyledChipsContainer from './StyledChipsContainer';
 import StyledChipsSearchContainer from './StyledChipsSearchContainer';
 
 // import helpers
-import scrollToTop from '../../../../../helpers/scrollToTop';
+import scrollToTop from '../../../../helpers/scrollToTop';
 
 function ChipsSearch() {
 	// states
@@ -51,7 +51,7 @@ function ChipsSearch() {
 	return (
 		<StyledChipsSearchContainer theme={theme} themeMode={themeMode}>
 			<StyledLabel theme={theme} themeMode={themeMode}>
-				או שלחץ/לחצי על שם המודול
+				בחרו את המודול שאתם מחפשים
 			</StyledLabel>
 
 			<StyledChipsContainer theme={theme} themeMode={themeMode}>

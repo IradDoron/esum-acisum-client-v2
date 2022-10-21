@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 // import states
-import { allModules, currModuleData, currModuleId } from '../states';
+import { allModules, currModuleData, currModuleId } from '../../ModulesPage/states';
 
 function useUpdateModuleData() {
 	// states

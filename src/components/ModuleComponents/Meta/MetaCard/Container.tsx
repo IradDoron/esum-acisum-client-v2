@@ -10,21 +10,28 @@ import styled from 'styled-components';
 import { themeModeState, themeState } from '../../../../recoil/theme';
 
 const StyledContainer = styled.div<ThemePropsWithColorKey>`
-	max-width: 700px;
+	// Colors
+
+	background-color: ${({ theme, themeMode }) =>
+		theme.palette.modes[themeMode].cardBg};
+
+	// Spacing
 	margin: auto;
 	margin-top: ${({ theme }) => theme.spacing.getSpace('md')};
 	margin-bottom: ${({ theme }) => theme.spacing.getSpace('md')};
 	padding: ${({ theme }) => theme.spacing.getSpace('sm')};
-	border-color: ${({ theme, themeMode, colorKey }) =>
-		theme.palette.modes[themeMode][colorKey].main.value};
-	border-width: 6px;
-	border-style: solid;
-	border-radius: 32px;
-	background-color: ${({ theme, themeMode }) =>
-		theme.palette.modes[themeMode].cardBg};
+
+	// Sizes
+	max-width: 700px;
+
+	// Border
+	border-radius: ${({ theme }) => theme.border.getBorderRadius('sm')};
+
+	// Effects
+	box-shadow: ${({ theme }) => theme.effects.shadow.defaultCard};
 `;
 
-type ContainerProps = {
+interface ContainerProps {
 	children: React.ReactNode;
 	colorKey: 'color1' | 'color2' | 'color3' | 'color4';
 };

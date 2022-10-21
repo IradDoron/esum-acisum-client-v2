@@ -1,3 +1,3 @@
-import ModulesPage from './ModulesPage/ModulesPage';
+import ModulesPage from './ModulesPage';
 
 export default ModulesPage;

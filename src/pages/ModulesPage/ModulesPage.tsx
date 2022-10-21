@@ -1,9 +1,9 @@
 // imports components
-import ModuleComponents from '../../../components/ModuleComponents';
+import ModuleComponents from '../../components/ModuleComponents';
 import ModulesSearch from './ModulesSearch';
 
 // import types
-import { BasicThemeProps } from '../../../types/styledComponentsInterfaces';
+import { BasicThemeProps } from '../../types/styledComponentsInterfaces';
 
 // import libraries
 import React from 'react';
@@ -19,7 +19,7 @@ import { useFetchModules, useUpdateCurrModuleData } from './effects';
 // import states
 import { currModuleData } from './states';
 
-import { themeModeState, themeState } from '../../../recoil/theme';
+import { themeModeState, themeState } from '../../recoil/theme';
 
 // styled components
 const StyledPageWrapper = styled.div<BasicThemeProps>`
@@ -31,6 +31,7 @@ const StyledPageWrapper = styled.div<BasicThemeProps>`
 
 	padding-right: ${({ theme }) => theme.spacing.getSpace('xs3')};
 	padding-left: ${({ theme }) => theme.spacing.getSpace('xs3')};
+	padding-top: ${({ theme }) => theme.spacing.getSpace('xl4')};
 `;
 
 const { Meta, Content } = ModuleComponents;
@@ -48,9 +49,8 @@ function ModulesPage() {
 
 	return (
 		<>
+			<ModulesSearch />
 			<StyledPageWrapper theme={theme} themeMode={themeMode}>
-				<ModulesSearch />
-
 				{currModuleDataState && (
 					<>
 						<Meta.Title title={currModuleDataState?.meta?.title} />

@@ -15,8 +15,9 @@ const StyledDescription = styled.h3<BasicThemeProps>`
 	margin: auto;
 	text-align: center;
 
+	// Colors
 	color: ${({ theme, themeMode }) =>
-		theme.palette.modes[themeMode].color1.main.contrast};
+		theme.palette.modes[themeMode].color2.light.contrast};
 
 	// Typography
 	font-family: ${({ theme }) => theme.typography.fontFamilies.primary};

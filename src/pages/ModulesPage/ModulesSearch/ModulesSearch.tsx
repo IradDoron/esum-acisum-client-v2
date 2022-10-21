@@ -1,14 +1,14 @@
 // import states
-import { themeModeState, themeState } from '../../../../recoil/theme';
-import { allModules } from '../states';
+import { themeModeState, themeState } from '../../../recoil/theme';
+import { allModules } from '../../ModulesPage/states';
 
 // import libraries
 import React, { useEffect, useState } from 'react';
-import {  useRecoilValue  } from 'recoil';
+import { useRecoilValue } from 'recoil';
 
 // import components
 import ChipsSearch from './ChipsSearch';
-import IdSearch from './IdSearch';
+// import IdSearch from './IdSearch';
 import StyledModulesSearchContainer from './StyledModulesSearchContainer';
 
 // import effects
@@ -36,10 +36,14 @@ function ModulesSearch() {
 
 	return (
 		<StyledModulesSearchContainer theme={theme} themeMode={themeMode}>
-			<IdSearch />
+			{/* <IdSearch /> */} 
 			<ChipsSearch />
 		</StyledModulesSearchContainer>
 	);
 }
 
 export default ModulesSearch;
+
+// Notes:
+
+// In the future, I will add a search by id, but for now, I will leave it commented out.

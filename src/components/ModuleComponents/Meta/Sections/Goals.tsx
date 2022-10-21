@@ -9,7 +9,7 @@ function Goals({ goals }: any) {
 	return (
 		<>
 			<MetaCard.Container colorKey="color2">
-				<MetaCard.Title>מטרות המודול</MetaCard.Title>
+				<MetaCard.Title colorKey="color2">מטרות המודול</MetaCard.Title>
 				<ul>
 					{goals?.map((goal: any) => {
 						return (

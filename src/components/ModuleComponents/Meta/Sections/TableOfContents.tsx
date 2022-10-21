@@ -8,7 +8,7 @@ import React from 'react';
 function TableOfContents({ tableOfContents }: any) {
 	return (
 		<MetaCard.Container colorKey="color3">
-			<MetaCard.Title>תוכן עניינים</MetaCard.Title>
+			<MetaCard.Title colorKey="color3">תוכן עניינים</MetaCard.Title>
 			<ul>
 				{tableOfContents()?.map((title: any) => {
 					return (

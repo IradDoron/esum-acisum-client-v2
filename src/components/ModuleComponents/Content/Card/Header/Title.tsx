@@ -14,7 +14,7 @@ const StyledTitle = styled.h2<BasicThemeProps>`
 	width: fit-content;
 	margin: auto;
 	color: ${({ theme, themeMode }) =>
-		theme.palette.modes[themeMode].color1.main.contrast};
+		theme.palette.modes[themeMode].color2.light.contrast};
 	font-size: ${({ theme }) => theme.typography.getFontSize('xl')};
 
 
@@ -36,9 +36,10 @@ type TitleProps = {
 function Title(props: TitleProps) {
 	const theme = useRecoilValue(themeState);
 	const themeMode = useRecoilValue(themeModeState);
+	const {title} = props;
 	return (
 		<StyledTitle theme={theme} themeMode={themeMode}>
-			{props.title}
+			{title}
 		</StyledTitle>
 	);
 }

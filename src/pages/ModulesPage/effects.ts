@@ -8,7 +8,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { allModules, currModuleData, currModuleIndex } from './states';
 
 // import constants
-import { CURR_ENV_URL } from '../../../recoil/constants';
+import { CURR_ENV_URL } from '../../recoil/constants';
 
 export const useFetchModules = () => {
 	const setAllModules = useSetRecoilState(allModules);
