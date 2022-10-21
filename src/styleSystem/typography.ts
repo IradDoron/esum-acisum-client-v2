@@ -105,7 +105,7 @@ const typography: Typography = {
 		return `${this.letterSpacingValues[sizeValueKey]}${this.unit}`;
 	},
 	fontFamilies: {
-		primary: 'Roboto',
+		primary: 'Helvetica Neue, Helvetica, Arial, sans-serif',
 		secondary: 'Roboto',
 		body: 'Helvetica Neue, Helvetica, Arial, sans-serif',
 	},

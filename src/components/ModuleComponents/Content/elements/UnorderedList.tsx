@@ -3,8 +3,8 @@ import { BasicThemeProps } from '../../../../types/styledComponentsInterfaces';
 
 // import libraries
 import React from 'react';
-import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
+import styled from 'styled-components';
 
 // import states
 import { themeModeState, themeState } from '../../../../recoil/theme';

@@ -23,6 +23,9 @@ const StyledTitle = styled.h2<BasicThemeProps>`
 		padding-right: ${({ theme }) => theme.spacing.getSpace('lg')};
 		padding-left: ${({ theme }) => theme.spacing.getSpace('lg')};
 	}
+
+	// Typography
+	font-family: ${({ theme }) => theme.typography.fontFamilies.primary};
 `;
 
 // types

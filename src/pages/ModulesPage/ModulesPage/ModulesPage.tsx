@@ -28,6 +28,9 @@ const StyledPageWrapper = styled.div<BasicThemeProps>`
 
 	height: 100%;
 	width: 100%;
+
+	padding-right: ${({ theme }) => theme.spacing.getSpace('xs3')};
+	padding-left: ${({ theme }) => theme.spacing.getSpace('xs3')};
 `;
 
 const { Meta, Content } = ModuleComponents;

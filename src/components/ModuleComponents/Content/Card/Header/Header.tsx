@@ -34,6 +34,11 @@ const StyledHeader = styled.header<BasicThemeProps>`
 	justify-content: space-evenly;
 	position: relative;
 
+	// Border
+	border-top-right-radius: ${({ theme }) => theme.border.getBorderRadius('sm')};
+	border-top-left-radius: ${({ theme }) => theme.border.getBorderRadius('sm')};
+
+
 `;
 
 // types

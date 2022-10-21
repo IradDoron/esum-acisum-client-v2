@@ -27,7 +27,7 @@ const StyledHorizontalLine = styled.hr<BasicThemeProps>`
 border: none;
 height: 1px;
 
-		// Si
+		
 `;
 
 function HideAnswer(props: any) {

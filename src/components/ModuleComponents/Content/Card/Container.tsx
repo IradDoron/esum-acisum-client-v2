@@ -11,21 +11,34 @@ import { themeModeState, themeState } from '../../../../recoil/theme';
 
 // styled components
 const StyledContainer = styled.section<BasicThemeProps>`
-	margin: auto;
-	margin-bottom: ${({ theme }) => theme.spacing.getSpace('xl')};
-	max-width: 1000px;
-	min-height: 200px;
-	border-radius: 32px;
-	border-width: 6px;
-	border-style: solid;
+	// Colors
 	border-color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].color1.main.value};
 
 	background-color: ${({ theme, themeMode }) =>
 		theme.palette.modes[themeMode].cardBg};
 
+	// Spacing
+	margin-bottom: ${({ theme }) => theme.spacing.getSpace('xl')};
 
 	
+
+	${({ theme }) => theme.breakpoints.up('md')} {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	// Sizing
+	border-width: 6px;
+	max-width: 940px;
+	min-height: 200px;
+
+	// Border
+	border: none;
+	border-radius: ${({ theme }) => theme.border.getBorderRadius('sm')};
+
+	// Effects
+	box-shadow: ${({ theme }) => theme.effects.shadow.defaultCard};
 `;
 
 type ContainerProps = {
