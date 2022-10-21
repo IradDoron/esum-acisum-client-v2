@@ -1,6 +1,3 @@
-// import types
-import { BasicThemeProps } from '../../../../types/styledComponentsInterfaces';
-
 // import libraries
 import React from 'react';
 import { useRecoilValue } from 'recoil';
