@@ -32,6 +32,7 @@ const StyledPageWrapper = styled.div<BasicThemeProps>`
 	padding-right: ${({ theme }) => theme.spacing.getSpace('xs3')};
 	padding-left: ${({ theme }) => theme.spacing.getSpace('xs3')};
 	padding-top: ${({ theme }) => theme.spacing.getSpace('xl4')};
+	padding-bottom: ${({ theme }) => theme.spacing.getSpace('xl4')};
 `;
 
 const { Meta, Content } = ModuleComponents;
@@ -50,64 +51,66 @@ function ModulesPage() {
 	return (
 		<>
 			<ModulesSearch />
-			<StyledPageWrapper theme={theme} themeMode={themeMode}>
-				{currModuleDataState && (
-					<>
-						<Meta.Title title={currModuleDataState?.meta?.title} />
-						<Meta.Description
-							description={currModuleDataState?.meta?.description}
-						/>
-						<Meta.Prerequisites
-							prerequisites={currModuleDataState?.meta?.prerequisites}
-						/>
-						<Meta.Goals goals={currModuleDataState?.meta?.goals} />
+			{currModuleDataState && (
+				<>
+					<StyledPageWrapper theme={theme} themeMode={themeMode}>
+						<>
+							<Meta.Title title={currModuleDataState?.meta?.title} />
+							<Meta.Description
+								description={currModuleDataState?.meta?.description}
+							/>
+							<Meta.Prerequisites
+								prerequisites={currModuleDataState?.meta?.prerequisites}
+							/>
+							<Meta.Goals goals={currModuleDataState?.meta?.goals} />
 
-						<Meta.TableOfContents
-							tableOfContents={() => GetListOfContentsTitles()}
-						/>
+							<Meta.TableOfContents
+								tableOfContents={() => GetListOfContentsTitles()}
+							/>
 
-						<Content.ChaptersContainer>
-							{currModuleDataState?.chapters?.map(
-								(content: any, index: number) => {
-									return (
-										<>
-											<Content.Card.Container key={index}>
-												<Content.Card.Header
-													title={content?.title}
-													description={content?.description}
-													count={Number(index) + 1}
-												/>
-												<Content.Card.Body>
-													{content.elements.map(
-														(element: any, index: number) => {
-															return (
-																<Content.Element
-																	type={element.type}
-																	content={element.content}
-																	children={element.children}
-																	tonic={element.tonic}
-																	scaleType={element.scaleType}
-																	key={index}
-																	title={element.title}
-																	quizSections={element.quizSections}
-																></Content.Element>
-															);
-														}
-													)}
-												</Content.Card.Body>
-											</Content.Card.Container>
-										</>
-									);
-								}
-							)}
-						</Content.ChaptersContainer>
-						<Meta.NextModules
-							nextModules={currModuleDataState?.meta?.nextModules}
-						/>
-					</>
-				)}
-				<ModulesSearch />
-			</StyledPageWrapper>
+							<Content.ChaptersContainer>
+								{currModuleDataState?.chapters?.map(
+									(content: any, index: number) => {
+										return (
+											<>
+												<Content.Card.Container key={index}>
+													<Content.Card.Header
+														title={content?.title}
+														description={content?.description}
+														count={Number(index) + 1}
+													/>
+													<Content.Card.Body>
+														{content.elements.map(
+															(element: any, index: number) => {
+																return (
+																	<Content.Element
+																		type={element.type}
+																		content={element.content}
+																		children={element.children}
+																		tonic={element.tonic}
+																		scaleType={element.scaleType}
+																		key={index}
+																		title={element.title}
+																		quizSections={element.quizSections}
+																	></Content.Element>
+																);
+															}
+														)}
+													</Content.Card.Body>
+												</Content.Card.Container>
+											</>
+										);
+									}
+								)}
+							</Content.ChaptersContainer>
+							<Meta.NextModules
+								nextModules={currModuleDataState?.meta?.nextModules}
+							/>
+						</>
+					</StyledPageWrapper>
+					<ModulesSearch />
+				</>
+			)}
 		</>
 	);
 }

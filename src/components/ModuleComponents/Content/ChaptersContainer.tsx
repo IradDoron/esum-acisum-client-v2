@@ -11,6 +11,8 @@ import { themeModeState, themeState } from '../../../recoil/theme';
 
 // styled components
 const StyledChaptersContainer = styled.div<BasicThemeProps>`
+	// Spacing
+	margin-top: ${({ theme }) => theme.spacing.getSpace('xl4')};
 `;
 
 // types

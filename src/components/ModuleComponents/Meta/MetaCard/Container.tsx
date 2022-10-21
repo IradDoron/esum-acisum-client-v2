@@ -18,7 +18,6 @@ const StyledContainer = styled.div<ThemePropsWithColorKey>`
 	// Spacing
 	margin: auto;
 	margin-top: ${({ theme }) => theme.spacing.getSpace('md')};
-	margin-bottom: ${({ theme }) => theme.spacing.getSpace('md')};
 	padding: ${({ theme }) => theme.spacing.getSpace('sm')};
 
 	// Sizes
