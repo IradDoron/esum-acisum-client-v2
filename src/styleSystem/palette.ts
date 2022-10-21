@@ -10,26 +10,27 @@ const palette: Palette = {
 		light: {
 			color1: {
 				main: new MainVariation('#0CB4A7', 'lightContrast'),
-				light: new LightVariation('#DFEEED', 'lightContrast'),
+				light: new LightVariation('#DFEEED', 'darkContrast'),
 				dark: new DarkVariation('#206A65', 'lightContrast'),
 			},
 			color2: {
 				main: new MainVariation('#4E0ED9', 'lightContrast'),
-				light: new LightVariation('#D3BFFF', 'lightContrast'),
+				light: new LightVariation('#D3BFFF', 'darkContrast'),
 				dark: new DarkVariation('#206A65', 'lightContrast'),
 			},
 			color3: {
 				main: new MainVariation('#D91E75', 'lightContrast'),
-				light: new LightVariation('#FFC8E1', 'lightContrast'),
-				dark: new DarkVariation('#206A65', 'lightContrast'),
+				light: new LightVariation('#FFC8E1', 'darkContrast'),
+				dark: new DarkVariation('#81003C', 'lightContrast'),
 			},
 			color4: {
 				main: new MainVariation('#F24738', 'lightContrast'),
-				light: new LightVariation('#DFEEED', 'lightContrast'),
+				light: new LightVariation('#DFEEED', 'darkContrast'),
 				dark: new DarkVariation('#206A65', 'lightContrast'),
 			},
 			cardBg: '#FFFFFF',
 			bodyColor: '#050505',
+			quizBg: '#FFFFFF',
 		},
 		dark: {
 			color1: {
@@ -54,6 +55,8 @@ const palette: Palette = {
 			},
 			cardBg: '#222222',
 			bodyColor: '#FFFFFF',
+			quizBg: '#FFFFFF',
+
 		},
 	},
 };

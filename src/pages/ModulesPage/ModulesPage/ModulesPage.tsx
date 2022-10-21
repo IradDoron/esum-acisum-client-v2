@@ -86,6 +86,7 @@ function ModulesPage() {
 																	scaleType={element.scaleType}
 																	key={index}
 																	title={element.title}
+																	quizSections={element.quizSections}
 																></Content.Element>
 															);
 														}

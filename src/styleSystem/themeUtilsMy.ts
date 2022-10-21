@@ -37,6 +37,7 @@ interface ThemeMode {
 	color4: Color;
 	cardBg: string;
 	bodyColor: string;
+	quizBg: string;
 }
 
 export interface Palette {

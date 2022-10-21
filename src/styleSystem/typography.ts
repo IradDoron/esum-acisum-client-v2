@@ -28,12 +28,26 @@ type fontSizeValueKey =
 	| 'xl21'
 	| 'xl22';
 
+type letterSpacingValueKey =
+	| 'xs3'
+	| 'xs2'
+	| 'xs'
+	| 'sm'
+	| 'md'
+	| 'lg'
+	| 'xl'
+	| 'xl2';
+
 interface Typography {
 	fontSizeValues: {
 		[sizeValueKey: string]: number;
 	};
+	letterSpacingValues: {
+		[sizeValueKey: string]: number;
+	};
 	unit: string;
 	getFontSize(sizeValueKey: fontSizeValueKey): string;
+	getLetterSpacing(sizeValueKey: letterSpacingValueKey): string;
 	fontFamilies: {
 		[fontFamilyKey: string]: string;
 	};
@@ -69,10 +83,26 @@ const typography: Typography = {
 		xl20: 5.6,
 		xl21: 5.8,
 		xl22: 6,
+		body: 0.938,
+	},
+	letterSpacingValues: {
+		xs3: -0.3,
+		xs2: -0.2,
+		xs: -0.1,
+		sm: 0,
+		md: 0.05,
+		lg: 0.1,
+		xl: 0.15,
+		xl2: 0.2,
+
+	
 	},
 	unit: 'rem',
 	getFontSize(sizeValueKey: fontSizeValueKey) {
 		return `${this.fontSizeValues[sizeValueKey]}${this.unit}`;
+	},
+	getLetterSpacing(sizeValueKey: letterSpacingValueKey) {
+		return `${this.letterSpacingValues[sizeValueKey]}${this.unit}`;
 	},
 	fontFamilies: {
 		primary: 'Roboto',

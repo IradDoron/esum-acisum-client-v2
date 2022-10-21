@@ -21,8 +21,8 @@ const StyledButton = styled.button<ButtonProps>`
 		font-size: ${({ theme }) => theme.typography.getFontSize('xs')};
 	}
 
-    // Sizes
-    height: 62px;
+	// Sizes
+	height: 62px;
 
 	// Spacing
 	padding: ${({ theme }) => theme.spacing.getSpace('xs2')};
@@ -31,6 +31,7 @@ const StyledButton = styled.button<ButtonProps>`
 	border: none;
 	border-radius: 4px;
 
+	// Other
 	cursor: pointer;
 `;
 
