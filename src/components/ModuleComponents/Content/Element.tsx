@@ -16,7 +16,7 @@ import React from 'react';
 
 function Element(props: any) {
 	// type is the type of the comoonent
-	const { type, content, children, tonic, scaleType, title, quiz, quizSections } = props;
+	const { type, content, children, tonic, scaleType, title, quizSections } = props;
 
 	function renderElement(type: string, content: any, children: any) {
 		switch (type) {
